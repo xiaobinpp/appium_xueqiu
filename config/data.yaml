@@ -1,0 +1,5 @@
+platformName: Android
+deviceName: emulator-5554
+appPackage: com.xueqiu.android
+appActivity: .view.WelcomeActivityAlias
+#noReset: true
