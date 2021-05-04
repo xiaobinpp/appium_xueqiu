@@ -1,0 +1,5 @@
+goto_mine:
+    - by: xpath
+      locator: //*[@resource-id="android:id/tabs"]/android.widget.RelativeLayout[5]/android.widget.TextView
+      action: click
+

@@ -15,7 +15,7 @@ class App(BasePage):
         if self._driver == None:
             logging.info('driver=None，读取yaml配置文件')
             with open('../config/data.yaml','r',encoding='utf-8') as file:
-                data = yaml.load(file)
+                data = yaml.safe_load(file)
             caps = {}
             caps['platformName'] = data['platformName']
             caps['deviceName'] = data['deviceName']
@@ -26,15 +26,14 @@ class App(BasePage):
         else:
 
             self._driver.launch_app()
-
-        self._driver.implicitly_wait(10)
+        self.set_implicitly(10)
         return self
 
     def restart(self):
-        pass
+        self._driver.reset()
 
     def end(self):
-        pass
+        self._driver.quit()
 
     def goto_main(self) -> Main:
         return Main(self._driver)
